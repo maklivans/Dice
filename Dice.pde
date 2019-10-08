@@ -10,7 +10,7 @@ void setup()
 void draw()
 {
   background(192);
-  while (x<1000){
+  while (x<1000000){
     die1 = new Die((int)(Math.random()*500),(int)(Math.random()*500),(int)(Math.random()*70+30));
     die1.show();
     sum = sum + die1.myValue;
