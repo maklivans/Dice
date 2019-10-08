@@ -1,6 +1,7 @@
 Die die1;
-int x = 0;
+//int x = 30;
 int sum = 0;
+//int y = 30;
 void setup()
 {
   noLoop();
@@ -10,19 +11,28 @@ void setup()
 void draw()
 {
   background(192);
-  while (x<100000){
-    die1 = new Die((int)(Math.random()*500),(int)(Math.random()*500),(int)(Math.random()*70+30));
-    die1.show();
-    sum = sum + die1.myValue;
-    x++;
+  //while (x<100000){
+    //die1 = new Die((int)(Math.random()*500),(int)(Math.random()*500),(int)(Math.random()*70+30));
+    //die1.show();
+    //sum = sum + die1.myValue;
+    //x++;
+  //}
+  for (int y = 0; y<=500; y=y+100) {
+    for (int x = 0; x<=500; x=x+100) {
+      die1 = new Die(x,y,100);
+      die1.show();
+      sum = sum + die1.myValue;
+    }
   }
-  textSize(15);
-  text("sum of dies: "+sum,20,20);
+  
+  textSize(25);
+  fill(255);
+  text("sum of dice: "+sum,20,20);
 }
 void mousePressed()
 {
   die1.roll();
-  x = 0;
+  //x = 0;
   sum = 0;
   redraw();
 }
