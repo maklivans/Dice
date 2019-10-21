@@ -38,7 +38,7 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-  int myX,myY,mySize,myValue;
+  int myX,myY,mySize,myValue,myBinary;
   
   Die(int x, int y, int size) //constructor
   {
@@ -50,6 +50,19 @@ class Die //models one single dice cube
   void roll()
   {
     myValue = (int)(Math.random()*6+1);
+    // if (myValue == 1) {
+    //   myBinary = 001;
+    // } else if (myValue == 2) {
+    //   myBinary = 001;
+    // } else if (myValue == 3) {
+    //   myBinary = 011;
+    // } else if (myValue == 4) {
+    //   myBinary = 100;
+    // } else if (myValue == 5) {
+    //   myBinary = 101;
+    // } else {
+    //   myBinary = 110;
+    // }
   }
   void show()
   {
@@ -57,6 +70,42 @@ class Die //models one single dice cube
     rect(myX,myY,mySize,mySize);
     fill(0);
     textSize(mySize*0.7);
-    text(myValue,myX+mySize*0.25,myY+mySize*0.75);
+    //text(myValue,myX+mySize*0.25,myY+mySize*0.75);
+    noStroke();
+    fill(255);
+    if (myValue==1) {
+      ellipse(myX+0.5*mySize,myY+0.5*mySize,15,15);
+    }
+    else if (myValue==2) {
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize,15,15);
+    }
+    else if (myValue==3) {
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize+20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize+20,15,15);
+      ellipse(myX+0.5*mySize,myY+0.5*mySize-20,15,15);
+    }
+    else if (myValue==4) {
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize+20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize+20,15,15);
+    }
+    else if (myValue==5) {
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize,myY+0.5*mySize,15,15);
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize+20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize+20,15,15);
+    }
+    else if (myValue==6) {
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize-20,15,15);
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize,15,15);
+      ellipse(myX+0.5*mySize-20,myY+0.5*mySize+20,15,15);
+      ellipse(myX+0.5*mySize+20,myY+0.5*mySize+20,15,15);
+
+    }
   }
 }
